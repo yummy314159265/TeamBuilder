@@ -1,0 +1,19 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #0d64b0;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    height: 100%;
+}
+
+header .title {
+    color: #d4e8db;
+    width: 100%;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
