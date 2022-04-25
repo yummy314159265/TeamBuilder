@@ -32,7 +32,7 @@ class HTMLRenderer {
         if (employee instanceof Engineer) {
             tag = `<span class="tag is-link">Engineer</span></p>`
             thirdLiEl = `<li>
-                                    Github: <a href='https://github.com/${employee.getGithub()}'>${employee.getGithub()}</a>
+                                    Github: <a href='https://github.com/${employee.getGithub()}' target='_blank' rel='noopener noreferrer'>${employee.getGithub()}</a>
                                 </li>`;
         }
 
@@ -44,9 +44,6 @@ class HTMLRenderer {
         }
 
         return `
-
-        <div class="columns">
-
             <div class="column is-one-quarter">
                 <div class="card">
                     <div class="card-content">
@@ -62,7 +59,7 @@ class HTMLRenderer {
                                     ID: ${employee.getId()}
                                 </li>
                                 <li>
-                                    Email: ${employee.getEmail()}
+                                    Email: <a href='mailto:${employee.getEmail()}'>${employee.getEmail()}</a>
                                 </li>
                                 ${thirdLiEl}
                             </ul>
@@ -70,8 +67,6 @@ class HTMLRenderer {
                     </div>
                 </div>
             </div>
-
-        </div>   
 `
     }
 
@@ -98,14 +93,8 @@ class HTMLRenderer {
     }
 
     renderHTML () {
-        let cl = '';
-
-        if (this.engineers.length + this.interns.length < 10) {
-            cl = 'is-clipped';    
-        }
-
         return `<!DOCTYPE html>
-<html class='${cl}' lang="en">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -136,14 +125,26 @@ class HTMLRenderer {
 
     <section class="container mt-5">
 
-    ${this.renderManagerHTML()}
+        <div class="columns is-centered">
+        
+        ${this.renderManagerHTML()}
+        
+        </div>   
 
-    ${this.renderEngineerHTML()}
+        <div class="columns is-centered">
+    
+        ${this.renderEngineerHTML()}
 
-    ${this.renderInternHTML()}
+        </div>  
+
+        <div class="columns is-centered">
+
+        ${this.renderInternHTML()}
+
+        </div>  
 
     </section>
-
+    
 </body>
 
 </html>`

@@ -3,9 +3,9 @@ html {
 }
 
 body {
-    background-color: #0d64b0;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     height: 100%;
+    background-color: #0d64b0;
 }
 
 header .title {
@@ -16,4 +16,8 @@ header .title {
 
 li {
     list-style: none;
+}
+
+.media-content .title {
+    font-size: 125%;
 }
